@@ -7,6 +7,7 @@ import { agentRoutes } from "./routes/agents";
 import { knowledgeRoutes } from "./routes/knowledge";
 import { leadRoutes } from "./routes/leads";
 import { appointmentRoutes } from "./routes/appointments";
+import { adminRoutes } from "./routes/admin";
 
 declare module "fastify" {
   interface FastifyInstance {
@@ -37,6 +38,7 @@ async function main() {
   await app.register(knowledgeRoutes);
   await app.register(leadRoutes);
   await app.register(appointmentRoutes);
+  await app.register(adminRoutes);
 
   const port = Number(process.env.PORT ?? 4000);
   await app.listen({ port, host: "0.0.0.0" });
