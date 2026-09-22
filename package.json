@@ -7,9 +7,17 @@
     "packages/*"
   ],
   "scripts": {
+    "postinstall": "npm run db:generate",
     "dev:api": "npm run dev --workspace=services/api",
     "dev:web": "npm run dev --workspace=apps/web",
+    "dev:admin": "npm run dev --workspace=apps/admin-web",
     "db:generate": "npm run generate --workspace=packages/database",
-    "db:push": "npm run push --workspace=packages/database"
+    "db:push": "npm run push --workspace=packages/database",
+    "build:api": "npm run build --workspace=services/api",
+    "start:api": "npm run db:push && npm run start --workspace=services/api",
+    "build:web": "npm run build --workspace=apps/web",
+    "start:web": "npm run start --workspace=apps/web",
+    "build:admin": "npm run build --workspace=apps/admin-web",
+    "start:admin": "npm run start --workspace=apps/admin-web"
   }
 }
